@@ -13,9 +13,12 @@ export class DeviceTemplateEntity {
     @Column({ type: 'varchar', length: 256 })
     public thumbnailUrl: string;
 
+    @Column({ type: 'boolean', default: false})
+    public isVirtual: boolean = false;
+
     @OneToMany(() => DeviceEntity, x => x.type, { lazy: true })
     public devices: Promise<DeviceEntity[]>;
 
     @OneToMany(() => DeviceTemplateParameterEntity, x => x.deviceTemplate, {lazy: true})
-    public connectorLines: Promise<DeviceTemplateParameterEntity[]>
+    public parameters: Promise<DeviceTemplateParameterEntity[]>
 }

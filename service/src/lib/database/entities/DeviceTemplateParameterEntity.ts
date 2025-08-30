@@ -13,7 +13,7 @@ export class DeviceTemplateParameterEntity {
     @Column({type: 'varchar', length: 20, nullable: true})
     public defaultValue?: string;
 
-    @ManyToOne(() => DeviceTemplateEntity, x => x.connectorLines, {eager: true})
+    @ManyToOne(() => DeviceTemplateEntity, x => x.parameters, {eager: true})
     public deviceTemplate: DeviceTemplateEntity;
 
     @OneToMany(() => DeviceParameterEntity, x => x.type, {lazy: true})
